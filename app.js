@@ -7,25 +7,19 @@ document.getElementById('button3').addEventListener('click', getExternal);
 // Get local text file data
 function getText() {
   fetch('test.txt')
-    .then(function(res) {
-      return res.text();
-    })
-    .then(function(data) {
+    .then(res => res.text())
+    .then(data => {
       console.log(data);
       document.getElementById('output').innerHTML = data;
     })
-    .catch(function(err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 };
 
 // Get local JSON data
 function getJson() {
   fetch('posts.json')
-    .then(function(res) {
-      return res.json();
-    })
-    .then(function(data) {
+    .then(res => res.json())
+    .then(data => {
       console.log(data);
       let output = '';
       data.forEach(function(post) {
@@ -33,18 +27,14 @@ function getJson() {
       });
       document.getElementById('output').innerHTML = output;
     })
-    .catch(function(err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 };
 
 // Get from external API
 function getExternal() {
   fetch('https://api.github.com/users')
-    .then(function(res) {
-      return res.json();
-    })
-    .then(function(data) {
+    .then(res => res.json())
+    .then(data => {
       console.log(data);
       let output = '';
       data.forEach(function(user) {
@@ -52,9 +42,7 @@ function getExternal() {
       });
       document.getElementById('output').innerHTML = output;
     })
-    .catch(function(err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
 };
 
 // Error handling with Fetch
